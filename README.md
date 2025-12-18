@@ -1,11 +1,4 @@
-# Sample Snack app
+O Placar Pedro II é um aplicativo móvel desenvolvido com o objetivo de facilitar o acompanhamento de campeonatos de futebol realizados no município de Pedro II–PI.
+O sistema permite que usuários visualizem campeonatos, suas respectivas fases e os jogos de forma organizada, oferecendo uma interface simples, intuitiva e acessível.
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
-
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo cli](https://docs.expo.dev/get-started/installation/#expo-cli)).
-
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
-
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.dev/c/expo-dev-tools/61) or [Discord](https://chat.expo.dev/).
-
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+O projeto foi desenvolvido como atividade da disciplina Tópicos Especiais em Desenvolvimento, do Curso Técnico em Informática Integrado ao Ensino Médio do Instituto Federal do Piauí – Campus Pedro II, aplicando conceitos de análise de sistemas, requisitos, design, implementação e testes.
