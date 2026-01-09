@@ -49,7 +49,7 @@ const CHAMPIONSHIPS = [
 ];
 
 
-/* ===== CLASSIFICADOS ===== */
+/* ===== CLASSIFICADOS RURALZÃO ===== */
 const CLASSIFICADOS_FASE_GRUPOS = [
   'PALMEIRA',
   'CATIMBEIROS',
@@ -157,28 +157,45 @@ const RESULTADOS_SEMIFINAL = [
   },
 ];
 
-/*====== JOPS =======*/
+/* ===== FINAL ===== */
+const FinalScreen = () => (
+  <View style={styles.finalContainer}>
+    <Text style={styles.finalTitle}>FINAL 🏆</Text>
 
-const CLASSIFICACAO_JOPS_SUB18 = [
-  { time: 'TBF', j: 4, v: 4, e: 0, d: 0 },
-  { time: 'IFPI', j: 4, v: 2, e: 2, d: 0 },
-  { time: 'ANGELINA', j: 4, v: 3, e: 0, d: 1 },
-  { time: 'MARIA MENDES', j: 4, v: 0, e: 0, d: 4 },
-  { time: 'ECO ESCOLA', j: 4, v: 1, e: 0, d: 3 },
-];
+    <Image
+    source={PALMEIRA}
+    style={styles.teamPhoto}
+    resizeMode="contain"
+  />
 
-/* ===== COMPONENTES ===== */
-const ScreenTitle = ({ title }) => (
-  <View style={styles.titleContainer}>
-    <Text style={styles.screenTitle}>{title}</Text>
+
+    <View style={styles.championBox}>
+      <Text style={styles.championText}>PALMEIRA CAMPEÃO</Text>
+    </View>
+
+    <View style={styles.finalMatch}>
+      <View style={styles.teamBox}>
+        <Image source={PALMEIRA_LOGO} style={styles.finalLogo} />
+        <Text style={styles.teamName}>PALMEIRA</Text>
+      </View>
+
+      <View style={styles.scoreBox}>
+        <Text style={styles.finalScore}>2 x 2</Text>
+        <Text style={styles.finalPenalty}>PÊNALTIS 5 x 4</Text>
+      </View>
+
+      <View style={styles.teamBox}>
+        <Image source={CANTINHO_LOGO} style={styles.finalLogo} />
+        <Text style={styles.teamName}>CANTINHO</Text>
+      </View>
+    </View>
+
+    <View style={styles.finalFooter}>
+      <Text style={styles.footerText}>RURALZÃO 2025</Text>
+    </View>
   </View>
 );
 
-const AccessButton = ({ title, onPress, buttonStyle }) => (
-  <TouchableOpacity style={[styles.accessButton, buttonStyle]} onPress={onPress}>
-    <Text style={styles.accessButtonText}>{title}</Text>
-  </TouchableOpacity>
-);
 
 /* ===== JOPS FASES ===== */
 const JopsPhasesScreen = ({ route, navigation }) => {
@@ -211,7 +228,28 @@ const JopsPhasesScreen = ({ route, navigation }) => {
   );
 };
 
+/*====== JOPS =======*/
 
+const CLASSIFICACAO_JOPS_SUB18 = [
+  { time: 'TBF', j: 4, v: 4, e: 0, d: 0 },
+  { time: 'IFPI', j: 4, v: 2, e: 2, d: 0 },
+  { time: 'ANGELINA', j: 4, v: 3, e: 0, d: 1 },
+  { time: 'MARIA MENDES', j: 4, v: 0, e: 0, d: 4 },
+  { time: 'ECO ESCOLA', j: 4, v: 1, e: 0, d: 3 },
+];
+
+/* ===== COMPONENTES ===== */
+const ScreenTitle = ({ title }) => (
+  <View style={styles.titleContainer}>
+    <Text style={styles.screenTitle}>{title}</Text>
+  </View>
+);
+
+const AccessButton = ({ title, onPress, buttonStyle }) => (
+  <TouchableOpacity style={[styles.accessButton, buttonStyle]} onPress={onPress}>
+    <Text style={styles.accessButtonText}>{title}</Text>
+  </TouchableOpacity>
+);
 
 /* ===== TELAS ===== */
 const JopsCategoryScreen = ({ navigation }) => {
@@ -379,46 +417,6 @@ const ClassificacaoJopsSub18Screen = () => (
 );
 
 
-/* ===== FINAL ===== */
-const FinalScreen = () => (
-  <View style={styles.finalContainer}>
-    <Text style={styles.finalTitle}>FINAL 🏆</Text>
-
-    <Image
-    source={PALMEIRA}
-    style={styles.teamPhoto}
-    resizeMode="contain"
-  />
-
-
-    <View style={styles.championBox}>
-      <Text style={styles.championText}>PALMEIRA CAMPEÃO</Text>
-    </View>
-
-    <View style={styles.finalMatch}>
-      <View style={styles.teamBox}>
-        <Image source={PALMEIRA_LOGO} style={styles.finalLogo} />
-        <Text style={styles.teamName}>PALMEIRA</Text>
-      </View>
-
-      <View style={styles.scoreBox}>
-        <Text style={styles.finalScore}>2 x 2</Text>
-        <Text style={styles.finalPenalty}>PÊNALTIS 5 x 4</Text>
-      </View>
-
-      <View style={styles.teamBox}>
-        <Image source={CANTINHO_LOGO} style={styles.finalLogo} />
-        <Text style={styles.teamName}>CANTINHO</Text>
-      </View>
-    </View>
-
-    <View style={styles.finalFooter}>
-      <Text style={styles.footerText}>RURALZÃO 2025</Text>
-    </View>
-  </View>
-);
-
-
 /*========= FINAL JOPS ==========*/
 const FinalJopsSub18Screen = () => (
   <View style={styles.finalContainer}>
@@ -453,6 +451,8 @@ const FinalJopsSub18Screen = () => (
     </View>
   </View>
 );
+
+/* ===== RURALZÃO TELA ===== */
 
 /* ===== CLASSIFICADOS ===== */
 const ClassificadosScreen = () => (
@@ -572,28 +572,38 @@ const SemifinalScreen = () => (
 
 
 
-
-
 /* ===== NAVEGAÇÃO ===== */
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Splash" component={SplashScreen} />
-        <Stack.Screen name="Championships" component={ChampionshipsScreen} />
-        <Stack.Screen name="Classificados" component={ClassificadosScreen} />
-        <Stack.Screen name="Oitavas" component={OitavasScreen} />
-        <Stack.Screen name="Quartas" component={QuartasScreen} />
-        <Stack.Screen name="Semifinal" component={SemifinalScreen} />
-        <Stack.Screen name="ChampionshipPhases" component={ChampionshipPhasesScreen} />
-        <Stack.Screen name="JopsCategory" component={JopsCategoryScreen} />
-        <Stack.Screen name="JopsPhases" component={JopsPhasesScreen} />
-        <Stack.Screen name="ClassificacaoJopsSub18" component={ClassificacaoJopsSub18Screen} />
-        <Stack.Screen  name="FinalJopsSub18" component={FinalJopsSub18Screen} />
-        <Stack.Screen name="CopaBatomScreen" component={CopaBatomScreen} />
-        <Stack.Screen name="FinalDetails" component={FinalScreen} />
+      <Stack.Navigator
+  screenOptions={{
+    headerShown: true,
+    headerTitle: '',
+    headerBackTitle: '',
+    headerBackTitleVisible: false,
+    headerTintColor: '#fff',
+    headerStyle: {
+      backgroundColor: '#020305',
+      elevation: 0,
+      shadowOpacity: 0,
+    },
+  }}>
+        <Stack.Screen name="Splash" component={SplashScreen} options={{ headerTitle: () => null }} />
+        <Stack.Screen name="Championships" component={ChampionshipsScreen} options={{ headerTitle: () => null }}/>
+        <Stack.Screen name="Classificados" component={ClassificadosScreen} options={{ headerTitle: () => null }}/>
+        <Stack.Screen name="Oitavas" component={OitavasScreen} options={{ headerTitle: () => null }}/>
+        <Stack.Screen name="Quartas" component={QuartasScreen} options={{ headerTitle: () => null }}/>
+        <Stack.Screen name="Semifinal" component={SemifinalScreen} options={{ headerTitle: () => null }}/>
+        <Stack.Screen name="ChampionshipPhases" component={ChampionshipPhasesScreen} options={{ headerTitle: () => null }} />
+        <Stack.Screen name="JopsCategory" component={JopsCategoryScreen} options={{ headerTitle: () => null }} />
+        <Stack.Screen name="JopsPhases" component={JopsPhasesScreen} options={{ headerTitle: () => null }} />
+        <Stack.Screen name="ClassificacaoJopsSub18" component={ClassificacaoJopsSub18Screen} options={{ headerTitle: () => null }} />
+        <Stack.Screen  name="FinalJopsSub18" component={FinalJopsSub18Screen} options={{ headerTitle: () => null }} />
+        <Stack.Screen name="CopaBatomScreen" component={CopaBatomScreen} options={{ headerTitle: () => null }} />
+        <Stack.Screen name="FinalDetails" component={FinalScreen} options={{ headerTitle: () => null }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -843,6 +853,4 @@ tableCell: {
   flex: 1,
   textAlign: 'center',
 },
-
-
 });
